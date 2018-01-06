@@ -1,0 +1,286 @@
+/* init */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+/**/
+
+
+/* WEBISTE */
+
+.global-container {
+    height: 100%;
+}
+
+.hero-container {
+    height: 70%;
+    width: 100%;
+    background-color: #444;
+    background: url('https://www.estg.ipp.pt/estg/estg/image');
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* MENU */
+
+.global-menu {
+    background: #FFF;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    border-bottom: 1px #ccc solid;
+    z-index: 1;
+    -webkit-transition: height 0.5s, padding 0.5s, background-color 0.5s, color 0.5s;
+    /* Safari */
+    transition: height 0.5s, padding 0.5s, background-color 0.5s, color 0.5s;
+}
+
+.global-menu img {
+    float: left;
+    padding: 20px 20px;
+    height: 120px;
+}
+
+.global-menu ul {
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 80px;
+}
+
+.global-menu ul:last-child {
+    margin-right: 25px;
+}
+
+.global-menu ul li {
+    padding: 22px 25px;
+    color: #666;
+    font-size: 22px;
+    float: left;
+}
+
+.global-menu-top {
+    background: rgba(255, 255, 255, 0) !important;
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+    padding-top: 80px !important;
+    height: 160px !important;
+    border-bottom: none !important;
+}
+
+.global-menu-top ul li {
+    color: #fff !important;
+}
+
+
+/* MENU LEFT*/
+
+
+/* Safari 4.0 - 8.0 
+
+@-webkit-keyframes anim-menu-top {
+    from {
+        opacity: 
+    }
+    to {
+        background-color: yellow;
+    }
+}
+*/
+
+
+/* Standard syntax */
+
+@keyframes anim-hero {
+    from {
+        transform: translate(0px, -100%);
+    }
+    to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes anim-menu-left {
+    from {
+        transform: translate(0px, 50%);
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container-menu-left {
+    margin-top: -85px;
+    background: #FFF;
+}
+
+.container-menu-left ul {
+    list-style-type: none;
+    width: 80%;
+    margin: 0 !important;
+    margin-left: 25% !important;
+    font-size: 18px;
+    padding: 55px 0px;
+    font-weight: bold;
+}
+
+.container-menu-left ul li {
+    padding: 8px 0px;
+    -webkit-transition: color 0.5s;
+    /* Safari */
+    transition: color 0.5s;
+    color: #444;
+}
+
+.container-menu-left ul li:hover {
+    color: #00CC00;
+    cursor: pointer;
+}
+
+
+/* HOT NEW*/
+
+.hot-new-container h5 {
+    padding: 25px;
+    font-weight: bold;
+    transition: color 0.5s;
+}
+
+.hot-new {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    margin-bottom: 3px;
+}
+
+.hot-new:before {
+    content: "";
+    display: block;
+    width: 100%;
+    background-color: #00CC00;
+    height: 0px;
+    position: absolute;
+    bottom:0px;
+    transition: height 0.5s;
+}
+
+.hot-new-container:hover h5 {
+    color: #00CC00;
+}
+
+.hot-new-container:hover .hot-new:before {
+    height: 4px;
+}
+
+.hot-new-container {
+    cursor: pointer;
+}
+
+
+/* NEWS */
+
+@keyframes anim-new {
+    from {
+        transform: translate(0px, 50%);
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        transform: translate(0px, 0px);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animation-new {
+    animation-name: anim-new;
+    animation-duration: 1s;
+}
+
+.new-container {
+    padding: 10px;
+}
+
+.new {
+    background: #FFF;
+}
+
+.new .content {
+    background: #FFF
+}
+
+.new .image {
+    background: url('https://wac-cdn.atlassian.com/dam/jcr:1774d12e-8b47-4937-b5f4-32f88ab0f603/jira_trulia_customer_story.png?cdnVersion=ja');
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+    min-height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.new .content h4 {
+    color: #222;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    height: 85px;
+    overflow: hidden;
+}
+
+.new .content p {
+    color: #555;
+    height: 45px;
+    overflow: hidden;
+    margin-bottom: 10px !important;
+}
+
+.new .btn {
+    padding-left: 0px !important;
+}
+
+.new .btn span {
+    padding-right: 5px;
+    -webkit-transition: padding-right 0.5s;
+    /* Safari */
+    transition: padding-right 0.5s;
+}
+
+.new .btn:hover span {
+    padding-right: 10px;
+}
+
+.new .btn:hover .fa {
+    text-decoration: none;
+}
+
+
+/* FIX */
+
+.row {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.btn {
+    cursor: pointer;
+}

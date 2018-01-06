@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CIICESI - Centro de Inovação e Investigação em Ciências Empresariais e Sistemas de Informação</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- dependencies <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/946736393d.js"></script>
+    <!-- dependencies -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <style>
+        .active-img {
+            filter: blur(5px);
+            filter: brightness(0.4);
+            filter: contrast(200%);
+            filter: drop-shadow(16px 16px 20px blue);
+            filter: grayscale(50%);
+            filter: hue-rotate(90deg);
+            filter: invert(75%);
+            filter: opacity(25%);
+            filter: saturate(30%);
+            filter: sepia(60%);
+        }
+    </style>
+    <div style="height:100%; width:100%; overflow:hidden; position:relative;">
+        <div id="demo" style="z-index: 10; position:absolute; top:0px; left:0px; background:white;"> </div>
+        <img src="img1.jpg" id="img0" style="position:absolute; top:0px; left:0px;z-index: 1" />
+        <img src="img2.jpg" class="active-img" id="img1" style="position:absolute; top:0px; left:0px;z-index: 1" />
+    </div>
+    <script>
+        var screen = {
+            height: window.innerHeight,
+            width: window.innerWidth
+        };
+        var img = document.getElementById("img1");
+
+        img.height = screen.height * 1.5;
+
+        window.addEventListener("mousemove", function (event) {
+            myFunction(event);
+        });
+
+        function myFunction(e) {
+            var x = e.clientX;
+            var y = e.clientY;
+
+
+            var w = img.width;
+            var h = img.height;
+            var ny = (y - h / 2);
+            var nx = (x - w / 2);
+
+            if (nx > 0) {
+                nx = 0;
+            }
+            if (nx < (screen.width - w)) {
+                nx = (screen.width - w);
+            }
+            if (ny > 0) {
+                ny = 0;
+            }
+            if (ny < (screen.height - h)) {
+                ny = (screen.height - h);
+            }
+
+            img.style.top = ny + "px";
+            img.style.left = nx + "px";
+
+            var coor = "Coordinates: (" + x + "," + y + ") (" + nx + "," + ny + ") (" + w + "," + h + ")";
+            document.getElementById("demo").innerHTML = coor;
+        }
+    </script>
+</body>
+
+</html>

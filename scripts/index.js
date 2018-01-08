@@ -7,5 +7,4 @@ $(window).on('scroll', function (evt) {
             element.addClass("animation-new");
         }
     });
-
 });

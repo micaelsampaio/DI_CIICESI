@@ -5,8 +5,7 @@
     <title>CIICESI - Centro de Inovação e Investigação em Ciências Empresariais e Sistemas de Informação</title>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <!-- dependencies <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>-->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
         crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -16,26 +15,48 @@
     <script src="https://use.fontawesome.com/946736393d.js"></script>
     <!-- dependencies -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">    
+    <meta charset="utf-8">
     <base href="/">
 </head>
 
 <body ng-app="ciicesi-app" ng-cloak>
-    <!-- Menu -->
-    <div ng-controller="Menu" ng-include="'menu.html'" onload="start()"></div>
-    <!-- Menu -->
 
-    <!-- WEB SITE -->
-    <div ng-view style="height:100%;" autoscroll="true"></div>
-    <!-- Menu 
-    <div style="clear:both;" ng-include="'footer.html'"></div>-->
-    <!-- Menu -->
+    <div class="main-menu">
+
+        <div class="tab tab-big ciicesi-tab background-tint" style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=541&q=80')">
+            <div class="content">
+                <div class="title">CIICESI</div>
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</div>
+            </div>
+        </div>
+
+        <div class="tab projetos-tab">
+            <div class="content">
+                <div class="title">Projetos</div>
+                <div class="bar"></div>
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
+            </div>
+        </div>
+        <div class="tab equipa-tab">
+            <div class="content">
+                <div class="title">Equipa</div>
+                <div class="bar"></div>
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
+            </div>
+        </div>
+        <div class="tab novidades-tab">
+            <div class="content">
+                <a href="novidades.html"><div class="title">Novidades</div></a>
+                <div class="bar"></div>
+                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
     <script src="apps/app.js"></script>
-    <script src="scripts/routes.js"></script>
-    <script src="controllers/menu.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CIICESI - Centro de Inovação e Investigação em Ciências Empresariais e Sistemas de Informação</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <!-- dependencies <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/946736393d.js"></script>
+    <!-- dependencies -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <base href="/">
+</head>
+
+<body class="bg-projetos" ng-app="ciicesi-app" ng-cloak>
+
+    <div class="menu-top">
+        <div class="logo">CIICESI</div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="page-headline">PROJETOS</div>
+        </div>
+    </div>
+
+    <div class="projetos-container">
+        <div class="projetos-gallery">
+            <div id="img0" class="projeto" style="background: red">
+                <div class="title">1</div>
+            </div>
+            <div id="img1" class="projeto" style="background: blue">
+                <div class="title">2</div>
+            </div>
+            <div id="img2" class="projeto" style="background: green">
+                <div class="title">3</div>
+            </div>
+            <div id="img3" class="projeto" style="background: red">
+                <div class="title">4</div>
+            </div>
+            <div id="img4" class="projeto" style="background: blue">
+                <div class="title">5</div>
+            </div>
+
+            <div class="arrow-container-left" onclick="prev()"></div>
+            <div class="arrow-container-right" onclick="next()"></div>
+        </div>
+    </div>
+
+    <script>
+        const mod = (x, n) => (x % n + n) % n;
+        const data = [{
+                img: 'blue',
+                title: 'Projeto 0'
+            }, {
+                img: 'red',
+                title: 'Projeto 1'
+            }, {
+                img: 'green',
+                title: 'Projeto 2'
+            }, {
+                img: 'purple',
+                title: 'Projeto 3'
+            },
+            {
+                img: 'yellow',
+                title: 'Projeto 4'
+            },
+            {
+                img: 'gray',
+                title: 'Projeto 5'
+            },
+            {
+                img: 'pink',
+                title: 'Projeto 6'
+            }
+        ]
+
+
+        const projetos_title = document.querySelector(".container");
+        const projetos_container = document.querySelector(".projetos-container");
+        const projetos_gallery = document.querySelector(".projetos-gallery");
+
+        const projetos = Array.from(document.querySelectorAll(".projeto"));
+        let currentProjeto = 0;
+        let isNext = true;
+        let isPlaying = false;
+        let startTime = 0;
+        let currentTime = 0;
+
+        const containerHeight = window.innerHeight - projetos_title.getBoundingClientRect().bottom;
+        const containerWidth = window.innerWidth;
+
+        const projetoWidth = window.innerWidth * 1.2 / 4;
+        const projetoHeight = projetoWidth * 0.6;
+
+        const startX = projetoWidth / 2 * -1;
+
+        projetos_container.style.height = containerHeight + "px";
+        projetos_gallery.style.paddingTop = (containerHeight - projetoHeight) / 2 + "px";
+        projetos_gallery.style.height = projetoHeight + "px";
+
+        const resize = () => {
+
+        }
+
+        const init = () => {
+            currentProjeto = 0;
+
+            for (var i = 0; i < projetos.length; i++) {
+                var p = projetos[i];
+                p.style.width = projetoWidth + "px";
+                p.style.height = projetoHeight + "px";
+                p.style.left = 0 + "px";
+            }
+            for (i = currentProjeto - 1; i < currentProjeto + 4; i++) {
+                var p = projetos[i + 1];
+                setProjeto(p, data[mod(i, data.length)], false);
+            }
+            setProjetosPosition();
+            console.log("Next " + currentProjeto + " last: " + mod(currentProjeto + 4, data.length) + " " + data.length);
+            console.log(projetos);
+        }
+
+        const setProjeto = (p, projeto, click) => {
+            console.log("SET " + projeto.title);
+            p.innerHTML = projeto.title;
+            p.style.background = projeto.img;
+
+            p.onclick = function () {
+                return false;
+            }
+        }
+
+        const next = () => {
+
+            var p = projetos[0];
+            projetos.splice(0, 1);
+            projetos.splice(projetos.length, 0, p);
+
+            currentProjeto = ++currentProjeto < data.length ? currentProjeto : 0;
+            setProjeto(projetos[projetos.length - 1], data[mod(currentProjeto + 3, data.length)], false);
+            startAnimation(true);
+        }
+
+        const prev = () => {
+
+            var p = projetos[projetos.length - 1];
+            projetos.splice(projetos.length - 1, 1);
+            projetos.splice(0, 0, p);
+
+            currentProjeto = --currentProjeto < 0 ? data.length - 1 : currentProjeto;
+            setProjeto(projetos[0], data[mod(currentProjeto - 1, data.length)], false);
+            startAnimation(false);
+            console.log(currentProjeto + " " + mod(currentProjeto - 1, data.length))
+        }
+        const startAnimation = (isRight) => {
+            isNext = isRight;
+            isPlaying = true;
+            startTime = new Date().getTime();
+            animate();
+        }
+        const animate = () => {
+            setProjetosPosition();
+            currentTime = (new Date().getTime() - startTime) / 1000;
+            //console.log("Time: " + currentTime);
+            if (currentTime < 0.5) {
+                setTimeout(animate, 60 / 1000);
+            } else {
+                currentTime = 1;
+            }
+        }
+        const setProjetosPosition = () => {
+            var x = startX;
+
+            for (var i = 0; i < projetos.length; i++) {
+                var p = projetos[i];
+                p.style.left = x + (projetoWidth * i) + "px";
+
+                //console.log('X ' + p.style.left);
+
+            }
+        }
+
+        init();
+    </script>
+
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="apps/app.js"></script>
+</body>
+
+</html>

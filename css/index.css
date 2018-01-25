@@ -2,67 +2,82 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,700');
-
 :root {
     --roboto: 'Roboto', sans-serif;
     --roboto-mono: 'Roboto Mono', sans-serif;
-  }
+}
 
 body,
 html {
     height: 100%;
     margin: 0;
-    font-family:var(--roboto-mono) !important;
+    font-family: var(--roboto-mono) !important;
 }
 
 
 /* MAIN CONTENT*/
 
-.main-menu{
+.main-menu {
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
 }
 
-.main-menu .tab{
+.main-menu .tab {
     width: 20%;
     height: 100%;
     background: #444;
-    float:left;
+    float: left;
     position: relative;
+}
+
+.main-menu .tab .bg{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    opacity: 0.7;
 }
 
-.main-menu .tab-big{
+.main-menu .tab:hover .bg{
+    mix-blend-mode: normal;
+    opacity: 1;
+}
+
+.main-menu .tab-big {
     width: 40%;
 }
 
-.main-menu .tab .content{
+.main-menu .tab .content {
     position: absolute;
     bottom: 0px;
-    left:5%;
+    left: 5%;
     width: 90%;
     padding: 10px;
     margin-bottom: 55px;
 }
 
-.main-menu .content .title{
+.main-menu .content .title {
     font-family: var(--roboto) !important;
     font-size: 22px;
     color: #FFF;
     font-weight: bold;
 }
 
-.main-menu .content .bar{
+.main-menu .content .bar {
     width: 50px;
     height: 1px;
     background: #FFF;
 }
 
-.main-menu .content .text{
+.main-menu .content .text {
     font-family: var(--roboto-mono) !important;
     font-size: 14px;
     color: #FFF;
@@ -71,59 +86,80 @@ html {
     overflow: hidden;
 }
 
-.ciicesi-tab{
-    background-color: rgba(0,255,0,.8); 
-    background-blend-mode: multiply;
-    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=541&q=80');
+.ciicesi-tab {
+    background: rgb(118, 170, 35) !important;
+}
+
+.ciicesi-tab .bg {
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7857ea46fded9c0fcb5b65b9a20a41d9&auto=format&fit=crop&w=841&q=80');
 }
 
 .projetos-tab{
-    background: rgb(23, 32, 114) !important;
+    background: #074352 !important;
 }
-
+.projetos-tab .bg{
+    background-image: url('https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9a027edb5b7b5ef475a0a4441a54b630&auto=format&fit=crop&w=1050&q=80') !important;
+}
 .equipa-tab{
-    background: rgb(148, 49, 24) !important;
+    background: rgb(112, 68, 39) !important;
 }
 
-.novidades-tab{
-    background: rgb(99, 21, 119) !important;
+.equipa-tab .bg{
+    background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e3b92161cef01773ab8e0f83d4da1126&auto=format&fit=crop&w=1050&q=80') !important;
 }
+
+.novidades-tab {
+    background: rgb(37, 37, 51) !important;
+}
+.novidades-tab .bg{
+    background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a015de4c5a8a5e7be8e88ee39fb1ce2e&auto=format&fit=crop&w=1050&q=80') !important;
+}
+
+
 
 /* BG NOVIDADES */
 
-.bg-novidades{
+.bg-novidades {
     background: #444;
 }
 
-.bg-equipa{
+.bg-equipa {
     background: #1f1200;
 }
 
+.bg-projetos {
+    background: #133b56;
+}
+
+
 /*MENU TOP*/
-.menu-top{
+
+.menu-top {
     height: 80px;
 }
 
-.page-headline{
+.page-headline {
     width: 100%;
     text-align: center;
     font-size: 35px;
     color: #FFF;
     margin: 40px 0px;
 }
+
+
 /* NEW */
 
-.new{
+.new {
     width: 100%;
     padding-top: 40%;
     background: #444;
     position: relative;
 }
 
-.new .img{
+.new .img {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     background: #444;
     width: 50%;
     height: 100%;
@@ -132,10 +168,10 @@ html {
     background-repeat: no-repeat;
 }
 
-.new .content{
+.new .content {
     position: absolute;
-    top:0;
-    left:50%;
+    top: 0;
+    left: 50%;
     background: #2C7297;
     width: 50%;
     height: 100%;
@@ -143,122 +179,134 @@ html {
     text-align: center;
 }
 
-.new .tag{
+.new .tag {
     text-align: right;
-    margin:20px;
+    margin: 20px;
     height: 40px;
 }
 
-.new .text-area{
+.new .text-area {
     text-align: center;
     width: 70%;
-    margin:auto;
+    margin: auto;
     margin-top: 15%;
     position: relative;
 }
 
-.new .text{
+.new .text {
     font-size: 30px;
     vertical-align: middle;
 }
-.new .date{
+
+.new .date {
     font-size: 16px;
     vertical-align: middle;
     margin-top: 15%;
 }
 
-.new .button{
+.new .button {
     border: 1px #FFF solid;
     padding: 5px 15px;
     text-align: center;
     margin: 0 auto;
     background: transparent;
-    color:#FFF;
+    color: #FFF;
     position: relative;
     font-family: var(--roboto) !important;
     margin-top: 10%;
 }
 
-.new .button:hover{
-    color:#222;
+.new .button:hover {
+    color: #222;
     background: #FFF;
 }
 
-.new-right .content{
-    left:0px !important;
+.new-right .content {
+    left: 0px !important;
 }
 
-.new-right .img{
-    left:50% !important;
+.new-right .img {
+    left: 50% !important;
 }
+
 
 /* INVESTIGADOR */
 
-.investigador{
-    padding-top:20%;
+.investigador {
+    padding-top: 20%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    -webkit-filter: grayscale(100%);
+    /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
     position: absolute;
     overflow: hidden;
 }
 
-.investigador:hover{
-    -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+.investigador:hover {
+    -webkit-filter: grayscale(0%);
+    /* Safari 6.0 - 9.0 */
     filter: grayscale(0%);
 }
-.investigador:hover .bt{
+
+.investigador:hover .bt {
     opacity: 1;
-    transform: scale(1,1) ;
-    -webkit-transition: all  0.5s; /* Safari */
+    transform: scale(1, 1);
+    -webkit-transition: all 0.5s;
+    /* Safari */
     transition: all 0.5s;
     transition-delay: 0.4s;
 }
-.investigador:hover .descricao{
-    transform: translate(0px, 0px); 
+
+.investigador:hover .descricao {
+    transform: translate(0px, 0px);
 }
-.investigador .descricao{
+
+.investigador .descricao {
     position: absolute;
-    bottom:0px;
+    bottom: 0px;
     left: 0px;
     width: 100%;
     background: #0007;
     color: #FFF;
 }
 
-.investigador .descricao{
+.investigador .descricao {
     position: absolute;
-    bottom:0px;
+    bottom: 0px;
     left: 0px;
     width: 100%;
     background: #0007;
     color: #FFF;
     font-family: var(--roboto) !important;
     padding: 5px;
-    transform: translate(0px, 100px); 
-    -webkit-transition: all  0.5s; /* Safari */
+    transform: translate(0px, 100px);
+    -webkit-transition: all 0.5s;
+    /* Safari */
     transition: all 0.5s;
 }
 
-.investigador .descricao .nome{
+.investigador .descricao .nome {
     height: 25px;
     font-size: 16px;
     overflow: hidden;
     display: 0px;
 }
-.investigador .descricao .profissao{
+
+.investigador .descricao .profissao {
     height: 18px;
     font-size: 14px;
     overflow: hidden;
 }
-.investigador .redes{
+
+.investigador .redes {
     position: absolute;
-    bottom:55px;
+    bottom: 55px;
     right: 10px;
 }
-.investigador .bt{
+
+.investigador .bt {
     display: block;
     height: 22px;
     width: 22px;
@@ -267,3 +315,49 @@ html {
     opacity: 0;
     transition-delay: 0s;
 }
+
+
+/* PROJETOS */
+
+.projetos-container {
+    position: relative;
+    width: 100%;
+    background: #444;
+    overflow: hidden;
+}
+
+
+.projetos-container .projeto {
+    position: absolute;
+}
+.projetos-container .projetos-gallery{
+    position: relative;
+}
+.projetos-container .arrow-container-left {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 40px;
+    background: #FFF5;
+}
+
+.projetos-container .arrow-container-left .arrow {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    background: #FFF5;
+}
+
+.projetos-container .arrow-container-right {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 40px;
+    height: 100%;
+    background: #FFF5;
+}
+
+
+/* */

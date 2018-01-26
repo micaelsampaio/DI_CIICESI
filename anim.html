@@ -19,16 +19,16 @@
     <base href="/">
 </head>
 
-<body ng-app="ciicesi-app" ng-cloak>
+<body ng-app="ciicesi-app" ng-cloak style="background-color:#000">
 
-    <div ng-view style="height:100%;" autoscroll="true" id="page_main"></div>
-    <!-- ng-controller="Menu"  -->
-    <div ng-include="'novidades.html'" id="page_novidades" class="page"></div>
-    <div ng-include="'equipa.html'" id="page_equipa" class="page"></div>
-    <div ng-include="'projetos.html'" id="page_projetos" class="page"></div>
+    <div>
 
+        <svg width="200" height="800">
+            <circle cx="100" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />
+            <rect cy="200" width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+        </svg>
 
-    <div class="ripple"></div>
+    </div>
 
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>

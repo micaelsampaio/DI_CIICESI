@@ -1,8 +1,10 @@
-app.config(['$routeProvider', '$locationProvider',
+app.config([
+    '$routeProvider',
+    '$locationProvider',
     function ($routeProvider, $locationProvider) {
         $routeProvider
-            .when("/", {
-                templateUrl: "main.html"
-            })
+            .when("/", {templateUrl: "main.html"})
+
         $locationProvider.html5Mode(true);
-    }]);
+    }
+]);

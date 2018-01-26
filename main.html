@@ -1,4 +1,4 @@
-<div class="main-menu">
+<div class="main-menu" ng-controller="Main">
 
     <div class="tab tab-big ciicesi-tab">
         <div class="bg"></div>
@@ -9,15 +9,15 @@
         </div>
     </div>
 
-    <div class="tab projetos-tab">
+    <div class="tab projetos-tab" ng-click="Link('projetos')">
         <div class="bg"></div>
         <div class="content">
             <div class="title">Projetos</div>
             <div class="bar"></div>
-            <div class="text">Lorem 2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
+            <div class="text"> {{lastName}}Lorem 2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
         </div>
     </div>
-    <div class="tab equipa-tab">
+    <div class="tab equipa-tab" ng-click="Link('equipa')">
         <div class="bg"></div>
         <div class="content">
             <div class="title">Equipa</div>
@@ -25,7 +25,7 @@
             <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
         </div>
     </div>
-    <div class="tab novidades-tab">
+    <div class="tab novidades-tab" ng-click="Link('novidades')">
         <div class="bg"></div>
         <div class="content">
             <div class="title">Novidades</div>

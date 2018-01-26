@@ -1,7 +1,6 @@
+<div class="bg-equipa" ng-controller="Equipa" id="Equipa">
 
-<div class="bg-equipa" >
-
-    <div class="menu-top">
+    <div class="menu-top" ng-click="angular">
         <div class="logo">CIICESI</div>
     </div>
 
@@ -12,78 +11,15 @@
     </div>
     <div class="container">
         <div class="row pb-5">
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1507875165751-e330e59d8675?auto=format&fit=crop&w=750&q=80')">
+            <div ng-repeat="investigador in equipa" class="col-sm-3 investigador animation-new-left" style="background-image: url('https://images.unsplash.com/photo-1507875165751-e330e59d8675?auto=format&fit=crop&w=750&q=80')">
                 <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
+                    <div class="nome">{{investigador.nome}}</div>
+                    <div class="profissao">{{investigador.cargo}}</div>
                 </div>
                 <div class="redes">
                     <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
                     <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
                     <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?auto=format&fit=crop&w=402&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                </div>
-                <div class="redes">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1477597073867-a0c34dba8be5?auto=format&fit=crop&w=750&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                </div>
-                <div class="redes">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1476657680631-c07285ff2581?auto=format&fit=crop&w=710&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                </div>
-                <div class="redes">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1501625277806-e25bd4596da3?auto=format&fit=crop&w=400&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                </div>
-                <div class="redes">
-                    <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1507875165751-e330e59d8675?auto=format&fit=crop&w=750&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                    <div class="redes">
-                        <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1503430935654-c3847b9289eb?auto=format&fit=crop&w=368&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                    <div class="redes">
-                        <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1507875165751-e330e59d8675?auto=format&fit=crop&w=750&q=80')">
-                <div class="descricao">
-                    <div class="nome">Diogo Fernando Micael</div>
-                    <div class="profissao">Presidente Presidente Presidente</div>
-                    <div class="redes">
-                        <img src="https://www.facebook.com/images/fb_icon_325x325.png" class="bt">
-                    </div>
                 </div>
             </div>
         </div>

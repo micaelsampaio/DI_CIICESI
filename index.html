@@ -21,46 +21,16 @@
 
 <body ng-app="ciicesi-app" ng-cloak>
 
-    <div class="main-menu">
-
-        <div class="tab tab-big ciicesi-tab">
-            <div class="bg"></div>
-            <div class="content">
-                <div class="title">CIICESI</div>
-                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.</div>
-            </div>
-        </div>
-
-        <div class="tab projetos-tab">
-            <div class="bg"></div>
-            <div class="content">
-                <div class="title">Projetos</div>
-                <div class="bar"></div>
-                <div class="text">Lorem 2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-            </div>
-        </div>
-        <div class="tab equipa-tab">
-            <div class="bg"></div>
-            <div class="content">
-                <div class="title">Equipa</div>
-                <div class="bar"></div>
-                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-            </div>
-        </div>
-        <div class="tab novidades-tab">
-            <div class="bg"></div>
-            <div class="content">
-                <div class="title">Novidades</div>
-                <div class="bar"></div>
-                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</div>
-            </div>
-        </div>
-    </div>
+    <div ng-view style="height:100%;" autoscroll="true"></div>
+    <!-- ng-controller="Menu"  -->
+    <div ng-include="'novidades.html'"></div>
+    <div ng-include="'equipa.html'"></div>
+    <div ng-include="'projetos.html'"></div>
 
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
     <script src="apps/app.js"></script>
+    <script src="scripts/routes.js"></script>
 </body>
 
 </html>

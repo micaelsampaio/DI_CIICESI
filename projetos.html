@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>CIICESI - Centro de Inovação e Investigação em Ciências Empresariais e Sistemas de Informação</title>
-
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <!-- dependencies <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/946736393d.js"></script>
-    <!-- dependencies -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <base href="/">
-</head>
-
-<body class="bg-projetos" ng-app="ciicesi-app" ng-cloak>
+<div class="bg-projetos">
 
     <div class="menu-top">
         <div class="logo">CIICESI</div>
@@ -34,20 +13,9 @@
 
     <div class="projetos-container">
         <div class="projetos-gallery">
-            <div id="img0" class="projeto" style="background: red">
-                <div class="title">1</div>
-            </div>
-            <div id="img1" class="projeto" style="background: blue">
-                <div class="title">2</div>
-            </div>
-            <div id="img2" class="projeto" style="background: green">
-                <div class="title">3</div>
-            </div>
-            <div id="img3" class="projeto" style="background: red">
-                <div class="title">4</div>
-            </div>
-            <div id="img4" class="projeto" style="background: blue">
-                <div class="title">5</div>
+
+            <div class="template-projeto">
+                <div class="title"></div>
             </div>
 
             <div class="arrow-container-left" onclick="prev()"></div>
@@ -55,57 +23,61 @@
         </div>
     </div>
 
+    <div class="animation-image" id="projeto-img-transition">
+
+    </div>
+
     <script>
         const mod = (x, n) => (x % n + n) % n;
         const data = [{
-                img: 'blue',
-                title: 'Projeto 0'
-            }, {
-                img: 'red',
-                title: 'Projeto 1'
-            }, {
-                img: 'green',
-                title: 'Projeto 2'
-            }, {
-                img: 'purple',
-                title: 'Projeto 3'
-            },
-            {
-                img: 'yellow',
-                title: 'Projeto 4'
-            },
-            {
-                img: 'gray',
-                title: 'Projeto 5'
-            },
-            {
-                img: 'pink',
-                title: 'Projeto 6'
-            }
+            img: 'https://images.unsplash.com/photo-1440558547120-1c1cae0397a1?ixlib=rb-0.3.5&s=39d0555e73bf7d7b1b5223fd168883db&auto=format&fit=crop&w=750&q=80',
+            title: 'Projeto 0'
+        }, {
+            img: 'https://images.unsplash.com/photo-1504271863819-d279190bf871?ixlib=rb-0.3.5&s=7a2b986d405a04b3f9be2e56b2be40dc&auto=format&fit=crop&w=334&q=80',
+            title: 'Projeto 1'
+        }, {
+            img: 'https://images.unsplash.com/photo-1516306305827-b74eb3993a0a?ixlib=rb-0.3.5&s=7745d16f992ca0523d03e2c5c7cb06d0&auto=format&fit=crop&w=666&q=80',
+            title: 'Projeto 2'
+        }, {
+            img: 'https://images.unsplash.com/reserve/Hxev8VTsTuOJ27thHQdK_DSC_0068.JPG?ixlib=rb-0.3.5&s=7cbe7a38fa72deeef209d50f5d52d571&auto=format&fit=crop&w=747&q=80',
+            title: 'Projeto 3'
+        },
+        {
+            img: 'https://images.unsplash.com/photo-1473294312123-83488e2f8e8f?ixlib=rb-0.3.5&s=69871c86b65827ddfd9685024c00e562&auto=format&fit=crop&w=752&q=80',
+            title: 'Projeto 4'
+        },
+        {
+            img: 'https://images.unsplash.com/reserve/bIdO4DDS4qwVF6pHN4qr__MG_1605.jpg?ixlib=rb-0.3.5&s=326364eb914f19a40c82c9e5832ee274&auto=format&fit=crop&w=750&q=80',
+            title: 'Projeto 5'
+        },
+        {
+            img: 'https://images.unsplash.com/photo-1515224526905-51c7d77c7bb8?ixlib=rb-0.3.5&s=9980646201037d28700d826b1bd096c4&auto=format&fit=crop&w=400&q=80',
+            title: 'Projeto 6'
+        }
         ]
-
 
         const projetos_title = document.querySelector(".container");
         const projetos_container = document.querySelector(".projetos-container");
         const projetos_gallery = document.querySelector(".projetos-gallery");
+        const template = document.getElementsByClassName("template-projeto")[0];
+        const transitionImage = document.getElementById("projeto-img-transition");
 
-        const projetos = Array.from(document.querySelectorAll(".projeto"));
+        const projetos = [];
         let currentProjeto = 0;
         let isNext = true;
-        let isPlaying = false;
-        let startTime = 0;
-        let currentTime = 0;
 
         const containerHeight = window.innerHeight - projetos_title.getBoundingClientRect().bottom;
         const containerWidth = window.innerWidth;
 
-        const projetoWidth = window.innerWidth * 1.2 / 4;
-        const projetoHeight = projetoWidth * 0.6;
+        const projetoWidth = Math.round(window.innerWidth * 1.2 / 4);
+        const projetoHeight = projetoWidth * 0.65;
 
-        const startX = projetoWidth / 2 * -1;
+        let startX = projetoWidth / 3 * -1;
+        let currentX = 0;
+        let isPlaying = false;
 
         projetos_container.style.height = containerHeight + "px";
-        projetos_gallery.style.paddingTop = (containerHeight - projetoHeight) / 2 + "px";
+        projetos_gallery.style.marginTop = (containerHeight - projetoHeight) / 2 + "px";
         projetos_gallery.style.height = projetoHeight + "px";
 
         const resize = () => {
@@ -115,88 +87,97 @@
         const init = () => {
             currentProjeto = 0;
 
-            for (var i = 0; i < projetos.length; i++) {
-                var p = projetos[i];
-                p.style.width = projetoWidth + "px";
-                p.style.height = projetoHeight + "px";
-                p.style.left = 0 + "px";
-            }
             for (i = currentProjeto - 1; i < currentProjeto + 4; i++) {
-                var p = projetos[i + 1];
-                setProjeto(p, data[mod(i, data.length)], false);
+                projetos.push(createProjeto(data[mod(i, data.length)]));
             }
             setProjetosPosition();
-            console.log("Next " + currentProjeto + " last: " + mod(currentProjeto + 4, data.length) + " " + data.length);
-            console.log(projetos);
+            setProjetosClick();
         }
 
-        const setProjeto = (p, projeto, click) => {
-            console.log("SET " + projeto.title);
-            p.innerHTML = projeto.title;
-            p.style.background = projeto.img;
 
-            p.onclick = function () {
+        const createProjeto = (projeto) => {
+            var temp = template.cloneNode(true);
+            temp.getElementsByClassName("title")[0].innerHTML = projeto.title;
+            temp.style.backgroundImage = "url('" + projeto.img + "')";
+            temp.className = 'projeto';
+            temp.style.width = projetoWidth + "px";
+            temp.style.height = projetoHeight + "px";
+
+            temp.onclick = function () {
                 return false;
             }
+
+            projetos_gallery.insertBefore(temp, projetos_gallery.firstChild);
+            return temp;
         }
 
         const next = () => {
-
-            var p = projetos[0];
-            projetos.splice(0, 1);
-            projetos.splice(projetos.length, 0, p);
-
-            currentProjeto = ++currentProjeto < data.length ? currentProjeto : 0;
-            setProjeto(projetos[projetos.length - 1], data[mod(currentProjeto + 3, data.length)], false);
-            startAnimation(true);
+            if (!isPlaying) {
+                currentProjeto = ++currentProjeto < data.length ? currentProjeto : 0;
+                projetos.push(createProjeto(data[mod(currentProjeto + 3, data.length)]));
+                startAnimation(true);
+            }
         }
 
         const prev = () => {
-
-            var p = projetos[projetos.length - 1];
-            projetos.splice(projetos.length - 1, 1);
-            projetos.splice(0, 0, p);
-
-            currentProjeto = --currentProjeto < 0 ? data.length - 1 : currentProjeto;
-            setProjeto(projetos[0], data[mod(currentProjeto - 1, data.length)], false);
-            startAnimation(false);
-            console.log(currentProjeto + " " + mod(currentProjeto - 1, data.length))
+            if (!isPlaying) {
+                currentProjeto = --currentProjeto < 0 ? data.length - 1 : currentProjeto;
+                projetos.splice(0, 0, createProjeto(data[mod(currentProjeto - 1, data.length)]));
+                startAnimation(false);
+                console.log(currentProjeto + " " + mod(currentProjeto - 1, data.length))
+            }
         }
         const startAnimation = (isRight) => {
             isNext = isRight;
             isPlaying = true;
             startTime = new Date().getTime();
+            startX = isNext ? (projetoWidth / 3) * -1 : (projetoWidth / 3 + projetoWidth) * -1;
+            currentX = 0;
             animate();
         }
         const animate = () => {
-            setProjetosPosition();
             currentTime = (new Date().getTime() - startTime) / 1000;
-            //console.log("Time: " + currentTime);
+            currentX = projetoWidth * currentTime * 2 * -1;
+            setProjetosPosition();
+
             if (currentTime < 0.5) {
-                setTimeout(animate, 60 / 1000);
+                setTimeout(animate, 1000 / 60);
             } else {
-                currentTime = 1;
+                currentTime = 0;
+                currentX = 0;
+
+                if (isNext) {
+                    projetos.splice(0, 1);
+                } else {
+                    projetos.splice(projetos.length - 1, 1);
+                }
+
+                setProjetosPosition();
+                setProjetosClick();
+                isPlaying = false;
+            }
+        }
+        const setProjetosClick = () => {
+            projetos[1].onclick = () => {
+                console.log("click " + currentProjeto);
+                transitionImage.style.width = projetoWidth + "px";
+                transitionImage.style.height = projetoHeight + "px";
+                transitionImage.style.backgroundImage = projetos[1].style.backgroundImage;
+                transitionImage.style.top = projetos[1].getBoundingClientRect().top + "px";
+                transitionImage.style.left = projetos[1].getBoundingClientRect().left + "px";
+                console.log(projetos[1].getBoundingClientRect());
+            }
+            projetos[2].onclick = () => {
+                console.log("click" + (currentProjeto + 1));
             }
         }
         const setProjetosPosition = () => {
-            var x = startX;
-
             for (var i = 0; i < projetos.length; i++) {
                 var p = projetos[i];
-                p.style.left = x + (projetoWidth * i) + "px";
-
-                //console.log('X ' + p.style.left);
-
+                p.style.left = startX + (projetoWidth * i) + (isNext ? currentX : -currentX) + "px";
             }
         }
 
         init();
     </script>
-
-
-    <script src="scripts/angular.min.js"></script>
-    <script src="scripts/angular-route.min.js"></script>
-    <script src="apps/app.js"></script>
-</body>
-
-</html>
+</div>

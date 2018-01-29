@@ -1,17 +1,17 @@
 <div class="bg-equipa" ng-controller="Equipa" id="Equipa">
 
     <div class="menu-top" ng-click="angular">
-        <div class="logo">CIICESI</div>
+        <div class="logo" ng-click="back()"></div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="page-headline">EQUIPA</div>
+            <div class="page-headline">A NOSSA EQUIPA</div>
         </div>
     </div>
     <div class="container">
-        <div class="row pb-5">
-            <div ng-repeat="investigador in equipa" class="col-sm-3 investigador animation-new-left" style="background-image: url('https://images.unsplash.com/photo-1507875165751-e330e59d8675?auto=format&fit=crop&w=750&q=80')">
+        <div class="row pb-5" id="investigadores">
+            <div ng-repeat="investigador in equipa" class="col-sm-3 investigador" style="background-image: url('https://images.unsplash.com/photo-1507875165751-e330e59d8675?auto=format&fit=crop&w=750&q=80')">
                 <div class="descricao">
                     <div class="nome">{{investigador.nome}}</div>
                     <div class="profissao">{{investigador.cargo}}</div>

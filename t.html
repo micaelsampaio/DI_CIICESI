@@ -2,34 +2,232 @@
 <html>
 
 <head>
+    <title>CIICESI - Centro de Inovação e Investigação em Ciências Empresariais e Sistemas de Informação</title>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/946736393d.js"></script>
+    <!-- dependencies -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <base href="/">
+
     <style>
-        .teste{
-            width: 500px;
-            height: 500px;
-            position: relative;
-            background: #074352;
-        }
-        .bg{
-            position: absolute;
-            top:0;
-            left:0;
+        .intro {
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1481889617387-82a8f2413b6b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=85c28115e148fdd0db45aa8f35ef8065&auto=format&fit=crop&w=1051&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.7;
-            mix-blend-mode: overlay;
+            position: absolute;
+        }
+
+        .intro-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ball {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1px;
+            height: 1px;
+            background: #93C340;
+            border-radius: 50%;
+            transition: opacity 0.3s;
+        }
+
+        .mini-ball {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            background: #93C340;
+            transition: all 1s;
+            display: block;
+        }
+
+        .logo {
+            width: 400px;
+            height: 160px;
+        }
+
+        .logo-container {
+            position: absolute;
+            left: calc(50% - 200px);
+            top: calc(50% - 80px);
+            width: 0px;
+            height: 160px;
+            overflow: hidden;
+        }
+
+        .bounce {
+            animation: bounce 1s forwards;
+        }
+
+        .grow {
+            animation: grow .5s .2s forwards;
+            left: calc(50% - 80px);
+            top: calc(50% - 80px);
+            width: 160px;
+            height: 160px;
+        }
+
+        .show-logo {
+            animation: show-logo .5s forwards;
+        }
+
+        @keyframes bounce {
+            0% {
+                width: 1px;
+                height: 1px;
+            }
+            50% {
+                width: 200px;
+                height: 200px;
+                left: calc(50% - 100px);
+                top: calc(50% - 100px);
+            }
+            60% {
+                width: 160px;
+                height: 160px;
+                left: calc(50% - 80px);
+                top: calc(50% - 80px);
+            }
+            80% {
+                width: 180px;
+                height: 180px;
+                left: calc(50% - 90px);
+                top: calc(50% - 90px);
+            }
+            100% {
+                width: 160px;
+                height: 160px;
+                left: calc(50% - 80px);
+                top: calc(50% - 80px);
+            }
+        }
+
+        @keyframes grow {
+            0% {
+                width: 160px;
+                height: 160px;
+                left: calc(50% - 80px);
+                top: calc(50% - 80px);
+                border-radius: 50%;
+            }
+            100% {
+                width: 390px;
+                height: 160px;
+                left: calc(50% - 195px);
+                top: calc(50% - 80px);
+                border-radius: 20%;
+            }
+        }
+
+        @keyframes show-logo {
+            0% {
+                width: 0px;
+            }
+            100% {
+                width: 400px;
+            }
         }
     </style>
 </head>
 
-<body>
+<body ng-app="ciicesi-app" ng-cloak>
 
-    <div class="teste">
-        <div class="bg"></div>
+    <div class="intro" id="Intro" ng-controller="Intro">
+        <div class="intro-container">
+            <div class="ball"></div>
+            <div class="logo-container">
+                <img class="logo" src="/assets/ic_logo_color.png">
+            </div>
+
+        </div>
     </div>
 
+    </div>
+
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="apps/app.js"></script>
+    <script src="scripts/routes.js"></script>
+    <script src="controllers/equipa.js"></script>
+    <script src="controllers/novidades.js"></script>
+    <script src="controllers/projetos.js"></script>
+    <script src="controllers/main.js"></script>
+
+    <script>
+        app.controller('Intro', function ($scope) {
+            const ball = $('.intro .ball');
+            const logo = $('.intro .logo-container');
+            const container = $('.intro .intro-container');
+            const balls = [];
+
+            const imgs = [
+                'assets/tab_ciicesi_color.png',
+                'assets/tab_ciicesi.png',
+                'assets/equipa_tab_color.png',
+                'assets/equipa_tab.png',
+            ];
+
+            ball.addClass("bounce");
+
+            for (var i = 0; i < 100; i++) {
+                const div = $(document.createElement("div"));
+                div.addClass("mini-ball");
+                container.append(div);
+                balls.push(div);
+            }
+
+            setTimeout(() => {
+                for (var i = 0; i < balls.length; i++) {
+                    var angle = getRandomArbitrary(0, 360);
+                    var x = getRandomArbitrary(-30, 60) + 30;
+                    var y = getRandomArbitrary(-30, 60) + 30;
+                    var mW = getRandomArbitrary(1, 10);
+
+                    balls[i].css("left", x + "%");
+                    balls[i].css("top", y + "%");
+                    balls[i].css("width", mW + "px");
+                    balls[i].css("height", mW + "px");
+                    balls[i].css("opacity", 0);
+                }
+            }, 350);
+
+            ball.on('animationend', () => {
+                startGrow();
+            });
+
+            const startGrow = () => {
+                ball.addClass("grow");
+                ball.removeClass("bounce");
+                ball.on('animationend', () => {
+                    logo.addClass("show-logo");
+                });
+
+                logo.on('animationend', () => {
+                    ball.css("opacity", "0");
+
+                });
+            }
+        });
+
+        const getRandomArbitrary = (min, max) => {
+            return Math.random() * (max - min) + min;
+        }
+    </script>
 </body>
 
 </html>

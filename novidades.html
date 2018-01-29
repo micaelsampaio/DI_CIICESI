@@ -1,46 +1,64 @@
-<div class="bg-novidades" ng>
-    <div class="menu-top">
-        <div class="logo">CIICESI</div>
+<div class="bg-novidades" ng-controller="Novidades" id="Novidades" style="overflow:hidden">
+
+
+    <div class="full-news">
+        <div class="menu-top">
+            <div class="logo" ng-click="back()"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="page-headline">ÚLTIMAS NOVIDADES</div>
+            </div>
+        </div>
+
+        <div class="new new-{{novidade.class}}" ng-repeat="novidade in novidades">
+            <div class="img hidden" style="background-image: url('{{novidade.img}}')"></div>
+            <div class="content hidden" style="background: {{novidade.color}}">
+                <div class="content-text">
+                    <div class="tag">
+                        {{novidade.tag}}
+                    </div>
+                    <div class="text-area">
+                        <div class="date">9.2.2018</div>
+                        <div class="text">
+                            {{novidade.title}}
+                        </div>
+                        <button class="button" ng-click="abrirNovidade(novidade)">+ INFO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="full-page full-page-novidades">
+        <div class="full-square">
+            <div class="square square-projeto">
+            </div>
+        </div>
+        <div class="full-page">
+            <div class="close"></div>
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-md-6">
+                        <div class="title"> {{Novidade.title}}
+                        </div>
+                        <div class="content">
+                            {{Novidade.content}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="img-container">
+                            <div class="img" style="background-image: url('{{Novidade.img}}')">
+
+                            </div>
+
+                            <div class="img-description">
+                                {{Novidade.tag}} - {{Novidade.date}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="page-headline">NOVIDADES</div>
-        </div>
-    </div>
-    <div class="pre-new">
-<div class="circle"></div>
-<div class="circle2"></div>
-</div>
-    <div class="new new-left">
-        <div class="img animation-new-left" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=750&q=80')"></div>
-        <div class="content animation-content-left">
-            <div class="tag">
-                #workshop
-            </div>
-            <div class="text-area">
-                <div class="date">9.2.2018</div>
-                <div class="text">
-                    Workshop - Value Proposition and Business Model Canvas
-                </div>
-                <button class="button">+ INFO</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="new-right new">
-        <div class="img animation-new-right" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=750&q=80')"></div>
-        <div class="content animation-content-right" style="background: #972A2A">
-            <div class="tag">
-                #workshop
-            </div>
-            <div class="text-area">
-                <div class="date">9.2.2018</div>
-                <div class="text">
-                    Workshop - Value Proposition and Business Model Canvas
-                </div>
-                <button class="button">+ INFO</button>
-            </div>
-        </div>
-    </div>
 </div>

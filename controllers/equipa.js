@@ -1,36 +1,52 @@
-app.controller('Equipa', function($scope) {
+app.controller('Equipa', function ($scope) {
     $scope.equipa = [];
     let inv = [];
     $scope.init = () => {
-
-        for(var i = 0; i < 20; i++){
+        $scope.equipa = [];
+        for (var i = 0; i < 20; i++) {
             $scope.equipa.push({
                 nome: 'Diogo Fernando Micael',
                 cargo: 'Presidente',
                 redes: [
-                    {fb: '', linkedin: ''}
+                    { fb: '', linkedin: '' }
                 ]
             });
         }
 
-        inv = document.getElementsByClassName("investigador");
+        console.log($scope.equipa);
 
-        console.log('------------------------------------');
-        console.log(inv);
-        console.log(inv.length);
-        console.log('------------------------------------');
+        $(function () {
+            console.log("anim");
+            onScroll();
+        });
 
-        console.log(inv[0]);
-        console.log(inv[1]);
-
+        $scope.$apply(function () { });
     }
 
-    $scope.destroy= () =>{
+    $scope.destroy = () => {
         $scope.equipa = [];
-        window.onscroll = null;
     }
 
-    window.onscroll = () => {
+    $(window).scroll(function (event) {
+        onScroll();
+    });
+    const onScroll = () => {
+        var scroll = $(window).scrollTop() + window.innerHeight;
+        $(".investigador").each((index, value) => {
+            if (index > 12)
+                console.log($(value).offset().top + " > " + scroll);
+            if ($(value).offset().top < scroll) {
+                $(value).addClass("anim-investigador");
+            }
+        });
+    }
 
-    };
+    $scope.back = () => {
+        angular
+            .element(document.getElementById('Main'))
+            .scope()
+            .Link("/");
+
+        $scope.destroy();
+    }
 });

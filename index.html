@@ -19,22 +19,26 @@
     <base href="/">
 </head>
 
-<body ng-app="ciicesi-app" ng-cloak>
+<body ng-app="ciicesi-app" ng-cloak ng-controller="Index">
 
     <div ng-view style="height:100%;" autoscroll="true" id="page_main"></div>
     <!-- ng-controller="Menu"  -->
-    <div ng-include="'novidades.html'" id="page_novidades" class="page"></div>
-    <div ng-include="'equipa.html'" id="page_equipa" class="page"></div>
-    <div ng-include="'projetos.html'" id="page_projetos" class="page"></div>
+    <div class="ripple-container">
+        <div class="ripple"></div>
+    </div>
 
+    <div ng-include="'novidades.html'" id="page_novidades" class="page" onload="loadPage()"></div>
+    <div ng-include="'equipa.html'" id="page_equipa" class="page" onload="loadPage()"></div>
+    <div ng-include="'projetos.html'" id="page_projetos" class="page" onload="loadPage()"></div>
 
-    <div class="ripple"></div>
-
+    <script src="scripts/jquery-3.3.1.min.js"></script>
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/angular-route.min.js"></script>
     <script src="apps/app.js"></script>
     <script src="scripts/routes.js"></script>
     <script src="controllers/equipa.js"></script>
+    <script src="controllers/novidades.js"></script>
+    <script src="controllers/projetos.js"></script>
     <script src="controllers/main.js"></script>
 </body>
 

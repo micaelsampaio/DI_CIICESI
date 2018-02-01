@@ -1,8 +1,13 @@
 app.controller('Contactos', function ($scope) {
-
-    const close = () => {
+    $scope.init = () => {
         
     }
+    $scope.back = () => {
+        angular
+            .element(document.getElementById('Main'))
+            .scope()
+            .Link("/");
 
-
+        $scope.destroy();
+    }
 });

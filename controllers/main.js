@@ -6,6 +6,7 @@ app
         $scope.pageEquipa = document.getElementById("page_equipa");
         $scope.pageNovidades = document.getElementById("page_novidades");
         $scope.pageProjetos = document.getElementById("page_projetos");
+        $scope.pageContactos = document.getElementById("page_contactos");
 
         let page = {
             element: 'page_equipa',
@@ -34,20 +35,13 @@ app
 
         $scope.Link = (page) => {
 
-            $(function () {
-                $scope.pageMain = document.getElementById("page_main");
-                $scope.pageEquipa = document.getElementById("page_equipa");
-                $scope.pageNovidades = document.getElementById("page_novidades");
-                $scope.pageProjetos = document.getElementById("page_projetos");
-            });
-
             let params = [];
 
             if (page.indexOf("/") != -1) {
                 params = page.split("/");
                 page = params[0];
             }
-            
+
             console.log("Change page " + page + " " + params.length);
 
             switch (page) {
@@ -56,7 +50,7 @@ app
                     return $scope.showPage($scope.pageMain, "CIICESI", "/");
                 case 'projetos':
                     if (params.length <= 2) {
-                        $scope.showPage($scope.pageProjetos, "CIICESI - Projetos", "#projetos" + (params.length==2 ? '/'+ params[1] : ''));
+                        $scope.showPage($scope.pageProjetos, "CIICESI - Projetos", "#projetos" + (params.length == 2 ? '/' + params[1] : ''));
                         $("#Projetos").addClass("anim-fade-in");
                         return angular
                             .element(document.getElementById('Projetos'))
@@ -70,8 +64,15 @@ app
                         .element(document.getElementById('Equipa'))
                         .scope()
                         .init()
+                case 'contactos':
+                    $scope.showPage($scope.pageContactos, "Contactos", "#contactos");
+                    $("#Contactos").addClass("anim-fade-in");
+                    return angular
+                        .element(document.getElementById('Contactos'))
+                        .scope()
+                        .init()
                 case 'novidades':
-                    if (params-length <= 2) {
+                    if (params - length <= 2) {
                         $scope.showPage($scope.pageNovidades, "CIICESI", "#novidades");
                         $("#Novidades").addClass("anim-fade-in");
                         return angular
@@ -79,6 +80,7 @@ app
                             .scope()
                             .init()
                     }
+
                 default:
                     $scope.showPage($scope.pageMain, "CIICESI", "/");
             }
@@ -96,6 +98,10 @@ app
             $('.tab.equipa-tab').click(function (e) {
                 setRipple(e.pageX, e.pageY, "equipa");
                 $('.ripple').css("background-color", "#130900");
+            });
+            $('.tab.ciicesi-tab').click(function (e) {
+                setRipple(e.pageX, e.pageY, "contactos");
+                $('.ripple').css("background-color", "#6aa84fff");
             });
         });
 
@@ -145,7 +151,7 @@ app
             '/assets/novidades_tab_color.png',
             '/assets/novidades_tab.png'];
 
-        const pages = 3;
+        const pages = 4;
         let assetsLoaded = 0;
         let assetsToLoad = pages + assets.length;
 

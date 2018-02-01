@@ -164,6 +164,14 @@ html {
     min-height: 100%;
 }
 
+.bg-contactos {
+    background: #6aa84fff;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
 .bg-projetos {
     background: #133b56;
     height: 100%;
@@ -211,7 +219,22 @@ html {
     margin: 120px 0px;
 }
 
+/* CONTACTS */
+.contacts-container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
 
+.contacts{
+    position: absolute;
+    top: 50%;
+    left: 20%;;
+    transform: translate(0%, -50%);
+    color: #FFF;
+    width: 60%;
+    font-size: 30px;
+}
 /* NEW */
 
 .new {
@@ -811,6 +834,7 @@ FULL NEW
 .anim-from-left{
     display: block !important;
     animation: anim-from-left 0.5s forwards !important;
+    animation-duration: 0.5s !important;
 }
 
 @keyframes anim-to-right {
@@ -821,6 +845,7 @@ FULL NEW
 .anim-to-right{
     display: block !important;
     animation: anim-to-right 0.5s forwards !important;
+    animation-duration: 0.5s !important;
 }
 
 

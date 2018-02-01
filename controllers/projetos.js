@@ -169,7 +169,7 @@ app.controller('Projetos', function ($scope) {
         console.log("set click");
 
         for (var i = 0; i < $scope.projetos.length; i++) {
-            $($scope.projetos[i]).on("click", null);
+            $($scope.projetos[i]).off();
         }
 
         $($scope.projetos[1]).removeClass("dark");
@@ -203,6 +203,10 @@ app.controller('Projetos', function ($scope) {
         console.log("teste")
         if (img) {
             const im = $('.bg-projetos .full-page').find('.img');
+            im.css("marginLeft");
+            im.css("marginTop");
+            im.off();
+            im.stop();
             var off = img.offset();
             var off2 = im.offset();
             var offx = off2.left - off.left;
@@ -211,7 +215,7 @@ app.controller('Projetos', function ($scope) {
             im.removeClass("anim-img");
             im.css("marginLeft", offx * -1 + "px");
             im.css("marginTop", offy * -1 + "px");
-            setTimeout(() => { im.addClass("anim-img"); im.css("marginLeft", "0px"); im.css("marginTop", "0px") }, 5);
+            setTimeout(() => { im.addClass("anim-img"); im.css("marginLeft", "0px"); im.css("marginTop", "0px") }, 100);
         }
 
         console.log(projeto);
